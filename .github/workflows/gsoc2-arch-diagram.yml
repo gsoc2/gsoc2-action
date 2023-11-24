@@ -1,0 +1,22 @@
+# This workflow was added by gSOC2. Learn more at https://gsoc2.io/
+# This is v2.0 of this workflow file
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+name: gSOC2
+
+permissions: read-all
+
+jobs:
+  gsoc2:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    name: Analyze the repo with gSOC2
+    steps:
+      - uses: gsoc2/gsoc2-action@v2
+        with:
+          gsoc2-token: ${{ secrets.GSOC2_ARCH_DIAG_API_TOKEN }}
